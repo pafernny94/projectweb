@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINK PINK</title>
+    <style>
+        @keyframes backgroundChange {
+            0% { background-color: #FCDEE2; }
+            50% { background-color: #FFC0CB; }
+            100% { background-color: #FCDEE2; }
+        }
+        body {
+            animation: backgroundChange 10s infinite;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            color: #ff69b4;
+            margin: 20px 0;
+            font-size: 3em;
+            animation: bounce 2s infinite;
+        }
+        h2 {
+            margin: 20px 0;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .slider {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .slider .active {
+            opacity: 1;
+        }
+        .slider nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .cute-button {
+            background-color: #ffb6c1;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            outline: none; /* Remove the default outline on focus */
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Playful font */
+        }
+        .cute-button:hover {
+            background-color: #ff69b4;
+            transform: scale(1.1);
+        }
+        .cute-button:focus {
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            outline: none; /* Remove the default outline on focus */
+        }
+        iframe {
+            width: 80%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            text-decoration: none;
+            color: #ff69b4;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ff1493;
+        }
+        .no-animation {
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>BINK PINK</h1></center>
+
+    <div class="slider">
+        <img src="https://s359.kapook.com/pagebuilder/17e937e9-5d4a-4b80-951a-fe3245673742.jpg" class="active">
+        <img src="https://files.vogue.co.th/uploads/lisa01.jpeg">
+        <img src="https://files.vogue.co.th/uploads/jennie01.jpeg">
+        <img src="https://files.vogue.co.th/uploads/rose01.jpeg">
+        <img src="https://files.vogue.co.th/uploads/jisoo01.jpeg">
+        <nav>
+        </nav>
+    </div>
+    <button class="cute-button" onclick="prev()">ก่อนหน้า</button>
+    <button class="cute-button" onclick="next()">ถัดไป</button>
+    <h2>มารู้จักวง Blank Pink</h2>
+    <iframe src="https://www.youtube.com/embed/4ItAyjB3edA" title="เรื่องราวกว่าจะมาเป็น BlackPink" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <h1 class="no-animation"><a href="reward.html">กดเพื่อดูประวัติวง</a></h1>
+
+    <script>
+        let activeSlide = 0;
+        const slides = document.querySelectorAll('.slider img');
+
+        function showSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[activeSlide].classList.add('active');
+        }
+
+        function next() {
+            activeSlide = (activeSlide + 1) % slides.length;
+            showSlide();
+        }
+
+        function prev() {
+            activeSlide = (activeSlide - 1 + slides.length) % slides.length;
+            showSlide();
+        }
+
+        showSlide();  // Initial call to show the first slide
+    </script>
+</body>
+</html>
